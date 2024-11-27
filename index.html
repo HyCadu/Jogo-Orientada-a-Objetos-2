@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0155ef, #ed09c7);
+            background: linear-gradient(135deg, #32353b, #ed09c7);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -129,210 +129,171 @@
         let currentQuestionIndex = 0;
         let correctAnswers = 0;
 
+        //
         const questions = [
+    // Herança e Polimorfismo
     {
         question: "Qual palavra-chave é usada para indicar que uma classe herda de outra em Java?",
+        options: ["inherit", "extends", "super", "implements"],
+        answer: "b"
+    },
+    {
+        question: "Em Java, uma classe só pode herdar diretamente de:",
         options: [
-            "inherit",
-            "extends",
-            "super",
-            "implement"
+            "Quantas classes forem necessárias",
+            "Uma única classe",
+            "Duas classes, se usar interfaces",
+            "Nenhuma classe"
         ],
         answer: "b"
     },
     {
-        question: "Em Java, todas as classes herdam implicitamente de qual classe?",
+        question: "O que significa sobrescrita de métodos (override)?",
         options: [
-            "Object",
-            "Exception",
-            "Throwable",
-            "Super"
+            "Criar um método com o mesmo nome e assinatura de outro na mesma classe",
+            "Modificar um método da superclasse em uma subclasse",
+            "Criar dois métodos com nomes diferentes na mesma classe",
+            "Permitir que métodos com o mesmo nome aceitem diferentes tipos de parâmetros"
+        ],
+        answer: "b"
+    },
+    {
+        question: "O polimorfismo de sobrecarga é definido como:",
+        options: [
+            "Criar métodos com o mesmo nome, mas assinaturas diferentes na mesma classe",
+            "Substituir um método da classe pai",
+            "Compartilhar métodos entre subclasses",
+            "Acessar membros private da superclasse"
         ],
         answer: "a"
     },
+
+    // Interfaces
     {
-        question: "Qual modificador de acesso permite que um atributo seja acessado em subclasses, mas não fora do pacote?",
-        options: [
-            "public",
-            "private",
-            "protected",
-            "final"
-        ],
+        question: "Qual é a palavra-chave usada para declarar uma interface em Java?",
+        options: ["abstract", "implements", "interface", "contract"],
         answer: "c"
     },
     {
-        question: "Qual dos métodos a seguir é herdado da classe Object?",
+        question: "Quais atributos podem ser definidos dentro de uma interface?",
         options: [
-            "compareTo",
-            "equals",
-            "finalize",
-            "Todos os anteriores"
-        ],
-        answer: "d"
-    },
-    {
-        question: "Qual palavra-chave em Java indica que uma classe não pode ser estendida?",
-        options: [
-            "static",
-            "abstract",
-            "final",
-            "sealed"
-        ],
-        answer: "c"
-    },
-    {
-        question: "O que significa sobrescrever um método com a anotação @Override?",
-        options: [
-            "Adicionar um novo método",
-            "Modificar um método da subclasse",
-            "Redefinir o comportamento de um método da superclasse",
-            "Declarar um método abstrato"
-        ],
-        answer: "c"
-    },
-    {
-        question: "Qual é a função do método equals na classe Object?",
-        options: [
-            "Comparar referências de objetos",
-            "Comparar valores dos atributos de dois objetos",
-            "Comparar endereços de memória de objetos",
-            "Retornar uma representação em string do objeto"
+            "Privados e variáveis de instância",
+            "Apenas atributos static e final",
+            "Atributos mutáveis",
+            "Nenhum atributo"
         ],
         answer: "b"
     },
     {
-        question: "Qual dos modificadores impede que um valor de atributo seja alterado após a atribuição inicial?",
+        question: "Qual das afirmações é verdadeira sobre interfaces?",
         options: [
-            "static",
-            "abstract",
-            "final",
-            "private"
+            "Elas podem conter métodos com corpo desde o Java 7",
+            "Uma classe pode implementar várias interfaces",
+            "Interfaces podem herdar classes concretas",
+            "Uma interface só pode ter métodos privados"
+        ],
+        answer: "b"
+    },
+    {
+        question: "Qual palavra-chave é usada para uma classe implementar uma interface?",
+        options: ["extends", "abstract", "implements", "interface"],
+        answer: "c"
+    },
+    {
+        question: "Qual é o modificador padrão dos métodos em uma interface?",
+        options: ["private", "protected", "public", "static"],
+        answer: "c"
+    },
+
+    // Classes Abstratas e Anônimas
+    {
+        question: "Qual das opções descreve uma classe abstrata?",
+        options: [
+            "Uma classe que pode ser instanciada diretamente",
+            "Uma classe que serve como base, mas não pode ser instanciada",
+            "Uma classe que só contém métodos private",
+            "Uma classe que implementa várias interfaces"
+        ],
+        answer: "b"
+    },
+    {
+        question: "Um método abstrato:",
+        options: [
+            "Deve ser implementado na mesma classe",
+            "Pode ter um corpo na classe abstrata",
+            "Não possui corpo e deve ser implementado nas subclasses",
+            "Pode ser private"
         ],
         answer: "c"
     },
     {
-        question: "O que ocorre ao tentar instanciar uma classe abstrata?",
+        question: "Uma classe anônima pode ser criada para:",
         options: [
-            "O código compila normalmente",
-            "Uma exceção é lançada em tempo de execução",
-            "Erro de compilação",
-            "A instância é criada sem erros"
+            "Estender outra classe",
+            "Implementar uma interface",
+            "Ambas as opções acima",
+            "Nenhuma das anteriores"
         ],
         answer: "c"
     },
     {
-        question: "Em qual situação é usado o bloco finally em Java?",
+        question: "Qual é uma característica de classes anônimas?",
         options: [
-            "Quando uma exceção é capturada",
-            "Para garantir que um código seja executado sempre, independentemente de ocorrer uma exceção",
-            "Para lançar uma exceção",
-            "Para inicializar variáveis"
-        ],
-        answer: "b"
-    },
-    {
-        question: "Qual das opções define corretamente o que é uma interface em Java?",
-        options: [
-            "Uma classe com métodos apenas privados",
-            "Um tipo de classe abstrata",
-            "Um contrato que define métodos abstratos que as classes devem implementar",
-            "Um conjunto de métodos concretos que uma classe deve herdar"
+            "Podem ser instanciadas várias vezes",
+            "Devem implementar todos os métodos da superclasse",
+            "São criadas sem nome e usadas imediatamente",
+            "Só podem implementar interfaces"
         ],
         answer: "c"
     },
     {
-        question: "Qual palavra-chave indica que um método pode lançar uma exceção?",
-        options: [
-            "throw",
-            "throws",
-            "try",
-            "catch"
-        ],
-        answer: "b"
-    },
-    {
-        question: "Qual operador é usado para verificar se duas variáveis referenciam o mesmo objeto na memória?",
-        options: [
-            "equals",
-            "==",
-            "!=",
-            "instanceof"
-        ],
-        answer: "b"
-    },
-    {
-        question: "Qual palavra-chave é usada para definir uma classe que não pode ser instanciada diretamente?",
-        options: [
-            "interface",
-            "abstract",
-            "final",
-            "static"
-        ],
-        answer: "b"
-    },
-    {
-        question: "O que acontece quando um método da superclasse é declarado final?",
-        options: [
-            "O método não pode ser chamado",
-            "O método não pode ser sobrescrito em subclasses",
-            "O método é acessível apenas dentro do pacote",
-            "O método não pode lançar exceções"
-        ],
-        answer: "b"
-    },
-    {
-        question: "Qual o papel do modificador protected em uma classe?",
-        options: [
-            "Restringir acesso apenas ao pacote",
-            "Permitir acesso apenas dentro da classe",
-            "Permitir acesso apenas para classes filhas e dentro do pacote",
-            "Permitir acesso de qualquer classe"
-        ],
-        answer: "c"
-    },
-    {
-        question: "Em Java, uma classe pode herdar de quantas outras classes ao mesmo tempo?",
-        options: [
-            "Uma",
-            "Duas",
-            "Quantas forem necessárias",
-            "Depende do modificador de acesso"
-        ],
+        question: "Qual é a palavra-chave para declarar um método abstrato?",
+        options: ["abstract", "void", "static", "final"],
         answer: "a"
     },
+
+    // Exceptions
     {
-        question: "Em uma interface, qual é o modificador de acesso padrão dos métodos?",
-        options: [
-            "private",
-            "protected",
-            "public",
-            "static"
-        ],
-        answer: "c"
+        question: "Qual é a classe raiz para todas as exceções em Java?",
+        options: ["Error", "Throwable", "Exception", "RuntimeException"],
+        answer: "b"
     },
     {
-        question: "Qual das seguintes classes faz parte da hierarquia de exceções em Java?",
+        question: "O que o bloco finally faz?",
         options: [
-            "Object",
-            "Throwable",
-            "System",
-            "String"
+            "Captura uma exceção lançada no bloco try",
+            "Sempre é executado, independentemente de ocorrer uma exceção",
+            "Declara que um método lança uma exceção",
+            "Lança exceções manualmente"
         ],
         answer: "b"
     },
     {
-        question: "Qual bloco é opcional no tratamento de exceções em Java?",
+        question: "Como declarar que um método pode lançar uma exceção?",
+        options: ["try", "catch", "throws", "throw"],
+        answer: "c"
+    },
+    {
+        question: "Quais são exemplos de exceções verificadas (checked)?",
         options: [
-            "try",
-            "catch",
-            "finally",
-            "throws"
+            "NullPointerException, ArrayIndexOutOfBoundsException",
+            "IOException, SQLException",
+            "ArithmeticException, ClassCastException",
+            "OutOfMemoryError, StackOverflowError"
+        ],
+        answer: "b"
+    },
+    {
+        question: "O que significa lançar uma exceção com throw?",
+        options: [
+            "Declarar que o método pode lançar uma exceção",
+            "Capturar uma exceção",
+            "Criar e lançar uma exceção em tempo de execução",
+            "Finalizar a execução do programa"
         ],
         answer: "c"
     }
 ];
-
-
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
